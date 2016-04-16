@@ -1,0 +1,7 @@
+pc1_adsede pc2_adsede pc3_adsede pc4_vsede pc5_vsede : switch_privado switch_publico switch_sede_admin router_sede
+
+pc6_adlisboa pc7_adlisboa pc8_vlisboa pc9_vlisboa : switch_lisboa router_lisboa
+
+pc10_adcoimbra pc11_adcoimbra pc12_vcoimbra pc13_vcoimbra : switch_coimbra router_coimbra
+
+pc14_adporto pc15_adporto pc16_vporto pc17_vporto : switch_porto router_porto

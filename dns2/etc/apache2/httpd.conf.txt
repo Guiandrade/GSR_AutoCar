@@ -1,0 +1,13 @@
+Listen *:80
+
+<VirtualHost *:80>
+	ServerName autocar.ttt
+	ServerAlias www.autocar.ttt
+	DocumentRoot "/var/www/www.autocar.ttt"
+</VirtualHost>
+
+<VirtualHost *:80>
+	ServerAlias www.intranet.autocar.ttt
+	DocumentRoot "/var/www/intranet.autocar.ttt"
+	ServerName intranet.autocar.ttt
+</VirtualHost>

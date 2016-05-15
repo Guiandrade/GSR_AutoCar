@@ -1,0 +1,19 @@
+$TTL 60000
+@ 			IN 	SOA 	extserver.ttt. root.extserver.ttt. (
+		2006031201 ; serial
+		28 ; refresh
+		14 ; retry
+		3600000 ; expire
+		0 ; negative cache ttl
+		)
+
+@			IN	NS	extserver.ttt.
+extserver		IN	A	10.0.0.6
+
+leilei			IN	NS	extserver.leilei.ttt.
+
+autocar			IN	NS	dns1.autocar.ttt.
+autocar			IN	NS	dns2.autocar.ttt.
+dns1.autocar		IN	A	10.0.0.146
+dns2.autocar		IN	A	10.0.0.147
+extserver.leilei	IN	A	10.0.0.6

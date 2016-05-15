@@ -1,0 +1,7 @@
+pc1adsede pc2adsede pc3adsede pc4vsede pc5vsede : switchprivado switchpublico switchsedeadmin routersede
+
+pc6adlisboa pc7adlisboa pc8vlisboa pc9vlisboa : switchlisboa routerlisboa
+
+pc10adcoimbra pc11adcoimbra pc12vcoimbra pc13vcoimbra : switchcoimbra routercoimbra
+
+pc14adporto pc15adporto pc16vporto pc17vporto : switchporto routerporto

@@ -1,0 +1,11 @@
+$TTL 60000
+@ 		IN 	SOA 	extserver.leilei.ttt. root.extserver.leilei.ttt. (
+		2006031201 ; serial
+		28000 ; refresh
+		14 ; retry
+		3600000 ; expire
+		0 ; negative cache ttl
+		)
+
+@			IN	NS	extserver
+@			IN	A	10.0.0.6

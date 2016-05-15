@@ -1,0 +1,19 @@
+; reverse lookup database 
+$TTL    1
+@               IN      SOA     6.0.0.10.in-addr.arpa.    nobody.nowhere. (
+                        2006031201 ; serial
+                        28 ; refresh
+                        14 ; retry
+                        3600000 ; expire
+                        0 ; negative cache ttl 
+                        )
+
+@                         IN      NS      6.0.0.10.in-addr.arpa.
+6.0.0.10.in-addr.arpa.    IN      A       10.0.0.6
+6          	PTR        	.
+6		PTR			extserver.leilei.ttt.
+
+
+146.0.0.10.in-addr.arpa.   	IN      A       10.0.0.146
+146          PTR        		dns1.autocar.ttt.
+147          PTR        		dns2.autocar.ttt.

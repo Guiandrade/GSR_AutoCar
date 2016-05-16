@@ -10,10 +10,9 @@ $TTL 60000
 @			IN	NS	extserver.ttt.
 extserver		IN	A	10.0.0.6
 
-leilei			IN	NS	extserver.leilei.ttt.
+leilei			IN	NS	extserver.ttt.
 
 autocar			IN	NS	dns1.autocar.ttt.
 autocar			IN	NS	dns2.autocar.ttt.
-dns1.autocar		IN	A	10.0.0.146
-dns2.autocar		IN	A	10.0.0.147
-extserver.leilei	IN	A	10.0.0.6
+dns1.autocar.ttt.		IN	A	10.0.0.146
+dns2.autocar.ttt.		IN	A	10.0.0.147

@@ -6,6 +6,3 @@ ip route add default via 10.0.0.145
 
 /etc/init.d/bind start
 /etc/init.d/apache2 start
-
-echo "ServerName localhost" | tee /etc/apache2/conf.d/fqdn
-/etc/init.d/apache2 reload

@@ -3,3 +3,11 @@ ip addr add dev eth0 192.168.0.2/29
 ip link set dev eth0 up
 
 ip route add default via 192.168.0.1
+
+/etc/init.d/snmpd start
+
+cfgmaker --global "WorkDir:/var/www" private@192.168.0.2 --output mrtg.cfg
+
+env LANG=C mrtg ./mrtg.cfg --daemon
+
+indexmaker --title "routersede" --output /var/www/index.html ./mrtg.cfg

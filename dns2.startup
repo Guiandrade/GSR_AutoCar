@@ -6,3 +6,7 @@ ip route add default via 10.0.0.145
 
 /etc/init.d/bind start
 /etc/init.d/apache2 start
+
+a2ensite www.autocar.ttt
+a2ensite intranet.autocar.ttt
+/etc/init.d/apache2 reload

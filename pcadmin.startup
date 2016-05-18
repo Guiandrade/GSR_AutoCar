@@ -1,0 +1,27 @@
+ip addr add dev eth0 10.0.0.10/30
+
+ip link set dev eth0 up
+
+ip route add default via 10.0.0.9
+
+/etc/init.d/networking start
+/etc/init.d/ssh start
+
+adduser pcadmin
+
+cd /home/
+chmod 700 pcadmin/
+chown pcadmin:pcadmin pcadmin/
+
+cd pcadmin/
+chown pcadmin:pcadmin .ssh/
+chmod 700 .ssh/
+
+cd .ssh/
+chown pcadmin:pcadmin id_rsa id_rsa.pub
+chmod 700 id_rsa id_rsa.pub
+
+
+#su - pcadmin
+#ssh -f -L 2222:192.168.0.3:22 dns1@10.0.0.146 -N
+#ssh -f -L 2223:192.168.0.2:22 dns2@10.0.0.147 -N

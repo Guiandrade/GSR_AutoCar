@@ -11,3 +11,19 @@ cfgmaker --global "WorkDir:/var/www" private@192.168.0.2 --output mrtg.cfg
 env LANG=C mrtg ./mrtg.cfg --daemon
 
 indexmaker --title "routersede" --output /var/www/index.html ./mrtg.cfg
+
+/etc/init.d/ssh start
+
+adduser server
+
+cd /home/
+chmod 700 server/
+chown server:server server/
+
+cd server/
+chown server:server .ssh/
+chmod 700 .ssh/
+
+cd .ssh/
+chown server:server authorized_keys
+chmod 700 authorized_keys

@@ -10,3 +10,19 @@ ip route add default via 10.0.0.145
 a2ensite www.autocar.ttt
 a2ensite intranet.autocar.ttt
 /etc/init.d/apache2 reload
+
+/etc/init.d/ssh start
+
+adduser dns2
+
+cd /home/
+chmod 700 dns2/
+chown dns2:dns2 dns2/
+
+cd dns2/
+chown dns2:dns2 .ssh/
+chmod 700 .ssh/
+
+cd .ssh/
+chown dns2:dns2 authorized_keys
+chmod 700 authorized_keys

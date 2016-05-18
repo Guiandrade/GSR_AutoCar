@@ -3,3 +3,19 @@ ip addr add dev eth0 192.168.0.3/29
 ip link set dev eth0 up
 
 ip route add default via 192.168.0.1
+
+/etc/init.d/ssh start
+
+adduser fileserver
+
+cd /home/
+chmod 700 fileserver/
+chown fileserver:fileserver fileserver/
+
+cd fileserver/
+chown fileserver:fileserver .ssh/
+chmod 700 .ssh/
+
+cd .ssh/
+chown fileserver:fileserver authorized_keys
+chmod 700 authorized_keys

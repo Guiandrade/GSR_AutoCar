@@ -5,3 +5,18 @@ ip link set dev eth0 up
 ip route add default via 10.0.0.145
 
 /etc/init.d/bind start
+/etc/init.d/ssh start
+
+adduser dns1
+
+cd /home/
+chmod 700 dns1/
+chown dns1:dns1 dns1/
+
+cd dns1/
+chown dns1:dns1 .ssh/
+chmod 700 .ssh/
+
+cd .ssh/
+chown dns1:dns1 authorized_keys
+chmod 700 authorized_keys

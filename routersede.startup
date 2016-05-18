@@ -24,9 +24,6 @@ ip route add 192.168.1.0/24 via 10.0.1.1
 /etc/init.d/dhcp3-server start
 /etc/init.d/zebra start
 
-#NAT
-iptables -t nat -A POSTROUTING -o eth3 -j MASQUERADE
-
 #FIREWALL
 #Bloquear acesso do exterior a maquinas com enderecos privados
 
@@ -61,3 +58,8 @@ iptables -A FORWARD -s 192.168.1.0/24 -d 192.168.0.24/29 -j DROP
 #Bloquear acesso do exterior para PC's com IP publico (vice versa nao)
 
 iptables -A FORWARD -i eth2 -o eth4 -j DROP
+iptables -A FORWARD -i eth3 -o eth4 -j DROP
+#VERIFICAR ESTA LINHA ANTERIOR @Tiago
+
+#NAT
+iptables -t nat -A POSTROUTING -o eth3 -j MASQUERADE

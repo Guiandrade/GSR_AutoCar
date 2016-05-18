@@ -16,12 +16,9 @@ chown pcadmin:pcadmin pcadmin/
 cd pcadmin/
 chown pcadmin:pcadmin .ssh/
 chmod 700 .ssh/
+chown pcadmin:pcadmin server.sh
+chown pcadmin:pcadmin fileserver.sh
 
 cd .ssh/
 chown pcadmin:pcadmin id_rsa id_rsa.pub
 chmod 700 id_rsa id_rsa.pub
-
-
-#su - pcadmin
-#ssh -f -L 2222:192.168.0.3:22 dns1@10.0.0.146 -N
-#ssh -f -L 2223:192.168.0.2:22 dns2@10.0.0.147 -N

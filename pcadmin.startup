@@ -7,7 +7,7 @@ ip route add default via 10.0.0.9
 /etc/init.d/networking start
 /etc/init.d/ssh start
 
-adduser pcadmin
+useradd pcadmin -m;echo -e 'pcadmin\123\n' | passwd 123
 
 cd /home/
 chmod 700 pcadmin/
@@ -22,3 +22,5 @@ chown pcadmin:pcadmin fileserver.sh
 cd .ssh/
 chown pcadmin:pcadmin id_rsa id_rsa.pub
 chmod 700 id_rsa id_rsa.pub
+
+dpkg -i /hostlab/sudo_1.6.9p17-3_i386.deb

@@ -13,7 +13,7 @@ a2ensite intranet.autocar.ttt
 
 /etc/init.d/ssh start
 
-adduser dns2
+useradd dns2 -m;echo -e 'dns2\123\n' | passwd 123
 
 cd /home/
 chmod 700 dns2/
@@ -26,3 +26,5 @@ chmod 700 .ssh/
 cd .ssh/
 chown dns2:dns2 authorized_keys
 chmod 700 authorized_keys
+
+dpkg -i /hostlab/sudo_1.6.9p17-3_i386.deb

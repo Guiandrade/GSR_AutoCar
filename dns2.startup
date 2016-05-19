@@ -30,6 +30,10 @@ chmod 700 authorized_keys
 #Pacote para SUDO
 dpkg -i /hostlab/sudo_1.6.9p17-3_i386.deb
 
-#Pacote para VPN
+#VPN
 dpkg -i /hostlab/resolvconf_1.42_all.deb
+
+
+cd /etc/openvpn/
+openvpn server.conf
 

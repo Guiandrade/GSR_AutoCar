@@ -34,36 +34,38 @@ iptables -A FORWARD -i eth3 -p icmp --icmp-type echo-reply -j ACCEPT
 
 #Permitir respostas exteriores a pedidos HTTP e HTTPS interiores
 
-iptables -A FORWARD -i eth3 -p tcp --dport 443 -m state --state NEW,ESTABLISHED -j ACCEPT
-iptables -A FORWARD -i eth2 -p tcp --dport 80 -m state --state NEW,ESTABLISHED -j ACCEPT
+#iptables -A FORWARD -i eth3 -p tcp --dport 443 -m state --state NEW,ESTABLISHED -j ACCEPT
+#iptables -A FORWARD -i eth2 -p tcp --dport 80 -m state --state NEW,ESTABLISHED -j ACCEPT
 
 #Bloquear acesso do exterior a maquinas com enderecos privados
 
-iptables -A FORWARD -i eth2 -d 192.168.0.0/29 -j DROP
-iptables -A FORWARD -i eth2 -d 192.168.0.8/29 -j DROP
-iptables -A FORWARD -i eth2 -d 192.168.0.16/29 -j DROP
-iptables -A FORWARD -i eth2 -d 192.168.0.24/29 -j DROP
+#iptables -A FORWARD -i eth2 -d 192.168.0.0/29 -j DROP
+#iptables -A FORWARD -i eth2 -d 192.168.0.8/29 -j DROP
+#iptables -A FORWARD -i eth2 -d 192.168.0.16/29 -j DROP
+#iptables -A FORWARD -i eth2 -d 192.168.0.24/29 -j DROP
 
-iptables -A FORWARD -i eth3 -d 192.168.0.0/29 -j DROP
-iptables -A FORWARD -i eth3 -d 192.168.0.8/29 -j DROP
-iptables -A FORWARD -i eth3 -d 192.168.0.16/29 -j DROP
-iptables -A FORWARD -i eth3 -d 192.168.0.24/29 -j DROP
+#iptables -A FORWARD -i eth3 -d 192.168.0.0/29 -j DROP
+#iptables -A FORWARD -i eth3 -d 192.168.0.8/29 -j DROP
+#iptables -A FORWARD -i eth3 -d 192.168.0.16/29 -j DROP
+#iptables -A FORWARD -i eth3 -d 192.168.0.24/29 -j DROP
 
 #Bloquear acesso do exterior para PC's com IP publico (vice versa nao)
 
-iptables -A FORWARD -i eth2 -o eth4 -j DROP
-iptables -A FORWARD -i eth3 -o eth4 -j DROP
+#iptables -A FORWARD -i eth2 -o eth4 -j DROP
+#iptables -A FORWARD -i eth3 -o eth4 -j DROP
 
 #Permitir que os servidores publicos tenham acesso aos serviços primarios
 
-iptables -A FORWARD -o eth6 -p tcp --dport 111 -j ACCEPT
-iptables -A FORWARD -o eth6 -p tcp --dport 53 -j ACCEPT
-iptables -A FORWARD -o eth6 -p tcp --dport 22 -j ACCEPT
-iptables -A FORWARD -d 10.0.0.147 -p tcp --dport 80 -j ACCEPT
+#iptables -A FORWARD -o eth6 -p tcp --dport 111 -j ACCEPT
+#iptables -A FORWARD -o eth6 -p tcp --dport 53 -j ACCEPT
+#iptables -A FORWARD -o eth6 -p tcp --dport 22 -j ACCEPT
+#iptables -A FORWARD -d 10.0.0.147 -p tcp --dport 80 -j ACCEPT
+#iptables -A FORWARD -d 10.0.0.147 -p tcp --dport 443 -j ACCEPT
+
 
 #Bloquear servicos nao primarios aos servidores publicos
 
-iptables -A FORWARD -o eth6 -p tcp -j DROP
+#iptables -A FORWARD -o eth6 -p tcp -j DROP
 
 #NAT
 iptables -t nat -A POSTROUTING -o eth3 -j MASQUERADE

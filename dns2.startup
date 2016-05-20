@@ -7,10 +7,6 @@ ip route add default via 10.0.0.145
 /etc/init.d/bind start
 /etc/init.d/apache2 start
 
-a2ensite www.autocar.ttt
-a2ensite intranet.autocar.ttt
-/etc/init.d/apache2 reload
-
 /etc/init.d/ssh start
 
 useradd dns2 -m;echo -e 'dns2\123\n' | passwd 123
@@ -24,7 +20,13 @@ chown dns2:dns2 .ssh/
 chmod 700 .ssh/
 
 cd .ssh/
-chown dns2:dns2 authorized_keys
-chmod 700 authorized_keys
+chown dns2:dns2 authorized_keys id_rsa id_rsa.pub
+chmod 700 authorized_keys id_rsa id_rsa.pub
 
 dpkg -i /hostlab/sudo_1.6.9p17-3_i386.deb
+
+a2enmod ssl
+a2ensite www.autocar.ttt
+a2ensite intranet.autocar.ttt
+a2ensite default-ssl
+/etc/init.d/apache2 reload

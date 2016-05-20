@@ -33,7 +33,7 @@ dpkg -i /hostlab/sudo_1.6.9p17-3_i386.deb
 #VPN
 dpkg -i /hostlab/resolvconf_1.42_all.deb
 
+#Bloquear Internet VPN
 
-#cd /etc/openvpn/
-#openvpn server.conf
-
+iptables -A FORWARD -i tun0 -d 192.168.0.0/24 -j ACCEPT
+iptables -A FORWARD -i tun0 -j REJECT

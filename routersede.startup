@@ -31,3 +31,7 @@ iptables -A FORWARD -i eth2 -o eth4 -j DROP
 
 #NAT
 iptables -t nat -A POSTROUTING -o eth3 -j MASQUERADE
+
+#Bloquear Internet VPN
+
+iptables -A FORWARD -i tun0 -j REJECT

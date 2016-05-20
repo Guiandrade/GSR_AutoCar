@@ -31,7 +31,10 @@ chmod 700 authorized_keys
 dpkg -i /hostlab/sudo_1.6.9p17-3_i386.deb
 
 #VPN
+
 dpkg -i /hostlab/resolvconf_1.42_all.deb
+/etc/init.d/openvpn start
+
 
 #Bloquear Internet VPN
 

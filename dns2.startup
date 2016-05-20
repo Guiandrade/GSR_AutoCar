@@ -23,6 +23,7 @@ cd .ssh/
 chown dns2:dns2 authorized_keys id_rsa id_rsa.pub
 chmod 700 authorized_keys id_rsa id_rsa.pub
 
+#Pacote para SUDO
 dpkg -i /hostlab/sudo_1.6.9p17-3_i386.deb
 
 a2enmod ssl
@@ -30,3 +31,14 @@ a2ensite www.autocar.ttt
 a2ensite intranet.autocar.ttt
 a2ensite default-ssl
 /etc/init.d/apache2 reload
+
+#VPN
+
+dpkg -i /hostlab/resolvconf_1.42_all.deb
+/etc/init.d/openvpn start
+
+
+#Bloquear Internet VPN
+
+iptables -A FORWARD -i tun0 -d 192.168.0.0/24 -j ACCEPT
+iptables -A FORWARD -i tun0 -j REJECT	

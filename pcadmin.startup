@@ -24,3 +24,6 @@ chown pcadmin:pcadmin id_rsa id_rsa.pub
 chmod 700 id_rsa id_rsa.pub
 
 dpkg -i /hostlab/sudo_1.6.9p17-3_i386.deb
+
+#VPN
+dpkg -i /hostlab/resolvconf_1.42_all.deb

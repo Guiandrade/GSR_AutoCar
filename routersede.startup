@@ -18,43 +18,11 @@ ip link set dev eth7 up
 
 ip route add 10.0.0.4/30 via 10.0.0.1
 ip route add 10.0.0.8/30 via 10.0.0.1
-ip route add 192.168.1.0/24 via 10.0.1.1
-
-#ip route add default via netkit
+ip route add 192.168.1.0/24 via 10.0.0.147
 
 /etc/init.d/dhcp3-server start
 /etc/init.d/zebra start
 
-#FIREWALL
-#Bloquear acesso do exterior a maquinas com enderecos privados
-
-iptables -A FORWARD -s 10.0.0.4/30 -d 192.168.0.0/29 -j DROP
-iptables -A FORWARD -s 10.0.0.0/30 -d 192.168.0.0/29 -j DROP
-iptables -A FORWARD -s 192.168.1.0/24 -d 192.168.0.0/29 -j DROP
-
-iptables -A FORWARD -s 10.0.0.4/30 -d 192.168.0.8/29 -j DROP
-iptables -A FORWARD -s 10.0.0.0/30 -d 192.168.0.8/29 -j DROP
-iptables -A FORWARD -s 192.168.1.0/24 -d 192.168.0.8/29 -j DROP
-
-iptables -A FORWARD -s 10.0.0.4/30 -d 192.168.0.16/29 -j DROP
-iptables -A FORWARD -s 10.0.0.0/30 -d 192.168.0.16/29 -j DROP
-iptables -A FORWARD -s 192.168.1.0/24 -d 192.168.0.16/29 -j DROP
-
-iptables -A FORWARD -s 10.0.0.4/30 -d 192.168.0.24/29 -j DROP
-iptables -A FORWARD -s 10.0.0.0/30 -d 192.168.0.24/29 -j DROP
-iptables -A FORWARD -s 192.168.1.0/24 -d 192.168.0.24/29 -j DROP
-
-
-#Bloquear servicos nao primarios aos servidores publicos
-#(nao tenho a certeza se a 111 e para bloquear mas os comandos sao estes para bloquear as portas)
-
-#iptables -A FORWARD -i eth0 -o eth6 -p tcp --dport 111 -j DROP
-#iptables -A FORWARD -i eth1 -o eth6 -p tcp --dport 111 -j DROP
-#iptables -A FORWARD -i eth2 -o eth6 -p tcp --dport 111 -j DROP
-#iptables -A FORWARD -i eth3 -o eth6 -p tcp --dport 111 -j DROP
-#iptables -A FORWARD -i eth4 -o eth6 -p tcp --dport 111 -j DROP
-#iptables -A FORWARD -i eth5 -o eth6 -p tcp --dport 111 -j DROP
-#iptables -A FORWARD -i eth7 -o eth6 -p tcp --dport 111 -j DROP
 
 #Bloquear acesso do exterior para PC's com IP publico (vice versa nao)
 
